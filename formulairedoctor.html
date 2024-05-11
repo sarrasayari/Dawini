@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>formluaire doctor </title>
     <link rel="stylesheet" href="css/style6.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.growl.js"></script>
+    <script type="text/javascript" src="js/formulairedoctor.js"></script>
 </head>
 <body>
     <div class="banner">
@@ -20,60 +23,58 @@
         <h2> formluaire d'inscription</h2>
         <div class ="form1">
             <label for="date d'aujourd'hui">Date d'aujourd'hui<span class="star">*</span></label><br>
-            <input type="date" required class="input" id="dated'aujourd'hui"><br><br>
+            <input type="date" required class="input" id="datedaujourdhui"><br><br>
 
-            <label for=""> Nom complet <span class="star">*</span></label><br>
-            <input type="text" id="name" placeholder="Enter voter nom "><br><br>
+            <script>
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('datedaujourdhui').value = today;
+            </script>
+
+            <label for="fname"> Prénom <span class="star">*</span></label><br>
+            <input type="text" id="fname" placeholder="Enter voter prénom " required><br><br>
         
-        
+            <label for="lname"> Nom <span class="star">*</span></label><br>
+            <input type="text" id="lname" placeholder="Enter voter nom " required><br><br>
        
-            <label for=""> Email <span class="star">*</span></label><br>
-            <input type="email" id="name" placeholder="Enter voter mail"><br><br>
+            <label for="email"> Email <span class="star">*</span></label><br>
+            <input type="email" id="email" placeholder="Enter voter mail" required> <br><br>
 
-            <label for=""> mot passe  <span class="star">*</span></label><br>
-            <input type="password" id="password" placeholder="Enter voter mod passe"><br><br>
+            <label for="password"> Mot de passe  <span class="star">*</span></label><br>
+            <input type="password" id="password" placeholder="Enter voter mod passe" required><br><br>
         
-            <label for=""> Telephone <span class="star">*</span></label><br>
-            <input type="tel" id="name" placeholder="Enter voter numero  de Telephone"><br><br>
+            <label for="telephone"> Telephone <span class="star">*</span></label><br>
+            <input type="tel" id="telephone" placeholder="Enter voter numero  de Telephone"><br><br>
        
-            <label for=""> Age <span class="star">*</span></label><br>
-            <input type="number" min="20" max="100" name="age"><br><br>
+            <label for="age"> Age <span class="star">*</span></label><br>
+            <input type="number" min="20" max="100" name="age" id="age" placeholder="Age"><br><br>
 
-            <label for=""> prix de Consultation <span class="star">*</span></label><br>
-            <input type="number " id="number" placeholder=""><br><br>
+            <label for="price"> prix de Consultation <span class="star">*</span></label><br>
+            <input type="number" id="price" placeholder="prix de consultation en DT"><br><br>
 
-            
-
-            
-
-            
- 
         </div>
         <div class="form2">
             
     
-             <label for=""> voter spécialite <span class="star">*</span></label><br>
-             <input type="text" id="name" placeholder="voter  spécialite"><br><br>
-
-
+             <label for="specialite"> voter spécialite <span class="star">*</span></label><br>
+             <input type="text" id="specialite" placeholder="voter  spécialite"><br><br>
               
             <label for=""> Type d'Établissement <span class="star">*</span></label><br>
-             <input type="radio" id="prive" name ="Établissement" value="prive"><label for ="prive">Prive</label><br>
-             <input type="radio" id="etatique" name ="Établissement" value="etatique"><label for ="prive">Etatique</label><br><br>
+             <input type="radio" id="prive" name ="etablissement" value="prive"><label for ="prive">Prive</label><br>
+             <input type="radio" id="etatique" name ="etablissement" value="etatique"><label for ="etatique">Etatique</label><br><br>
              <label for=""> Consultation<span class="star">*</span></label><br>
-             <input type="radio" id="" name="gender" value="a_domicile"><label for="">A Domicile</label><br>
-            <input type="radio" id=""  name="gender" value="au cabinet"><label for="">Au cabinet</label><br>
-            <input type="radio" id=""  name="gender" value="hopitale"><label for="">Hopitale</label><br>
+             <input type="radio" id="domicile" name="consultation" value="domicile"><label for="domicile">A Domicile</label><br>
+            <input type="radio" id="cabinet"  name="consultation" value="cabinet"><label for="cabinet">Au cabinet</label><br>
+            <input type="radio" id="hopitale"  name="consultation" value="hopitale"><label for="hopitale">Hopitale</label><br>
         
             <label for=""> Genre <span class="star">*</span></label><br>
-            <input type="radio" id="" name="gender" value="Homme"><label for="">Homme</label><br>
-            <input type="radio" id=""  name="gender" value="Femme"><label for="">Femme</label><br>
+            <input type="radio" id="Homme" name="gender" value="Homme"><label for="Homme">Homme</label><br>
+            <input type="radio" id="Femme"  name="gender" value="Femme"><label for="Femme">Femme</label><br>
 
            
             <h3> Adreese</h3>
             <div class="form3">
-                <label for="country"> Sélectionnez votre ville <span class="star">*</span></label>
-                <select name="country" id="">
+                <label for="ville"> Sélectionnez votre ville <span class="star">*</span></label>
+                <select name="ville" id="ville">
                     <option value="Ariana"></option>
                    
                     
@@ -103,34 +104,16 @@
     
     
                 </select><br><br>
-
-
-                
-
-
-            </select><br><br>
-
-            
-        
-           
-            
-            
-            
-            
-
-           
-           
+                <br><br>
 
         </div>
         
         <div class="button">
-            <input type="submit" value="Enregistrer">
+            <input id="submit" type="submit" value="Enregistrer">
             
 
 
         </div>
-
-       
 
     </form>
    

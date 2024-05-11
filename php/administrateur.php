@@ -12,9 +12,6 @@
 	$password = $_POST["password"];
 
 	// Prevent SQL injection
-	$email = stripslashes($email);
-	$password = stripslashes($password);
-
 	$email = mysqli_real_escape_string($connection,$email);
 	$password = mysqli_real_escape_string($connection,$password);
 
@@ -30,10 +27,10 @@
 		echo json_encode($response);
 		exit;
 	}
-	else // User Not Found
+	else // Admin Not Found
 	{
 		/* Encode to Json Format */
-		$response = array("success" => false,"test1"=>$email,"test2"=>$password);
+		$response = array("success" => false);
 		/* Return as Json Format */
 		echo json_encode($response);
 		exit;
