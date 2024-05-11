@@ -1,0 +1,81 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+h2{
+    text-align: center ;
+    text-transform: uppercase;
+    border-bottom: 1px solid #888;
+    text-shadow: 2px 0 0 rgb(21, 0, 73);
+}
+
+form{ 
+    width: 70%;
+    margin: auto;
+    background-color: rgb(250, 250, 250);
+    padding:2em ;
+}
+.formluaire .form1 ,.formluaire .form2
+{
+    width: 40%;
+    display: inline-block;
+    
+}
+input, button, select{
+    font-size: 1em;
+}
+fieldset{
+    margin-bottom: 1em;
+}
+.logo{
+    width: 40px;
+    margin-top: -20 px;
+    padding-left: 0px;
+   
+}
+label{
+    font-size: 14px;
+}
+.star{
+    color: rgb(45, 49, 227);
+    font-size: 20px;
+    margin-left: 3px;
+    font-weight: bold;
+}
+label{
+    font-size: 14px;
+    
+}
+h3{
+    text-align: center ;
+    text-transform: uppercase;
+    border-bottom: 1px solid #888;
+    text-shadow: 2px 0 0 rgb(92, 92, 210);
+}
+.button input{
+    width:90%;
+    padding: 8px;
+    background: #012b6e;
+    color: #fff;
+    font-size: 19px;
+    border: none;
+    border-radius: 10px;
+    transition: all .4 ease-in;
+}
+.button input:hover{
+    background: #4a85e5;
+    color: #fff;
+}
+.banner video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+@media(min-aspect-rotio : 16/9){
+    .banner video {
+        width: 100%;
+        height: auto;
+
+    }
+}
