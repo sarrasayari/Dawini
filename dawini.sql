@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 11:07 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Hôte : 127.0.0.1
+-- Généré le : sam. 11 mai 2024 à 23:52
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dawini`
+-- Base de données : `dawini`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `administrateur`
+-- Structure de la table `administrateur`
 --
 
 CREATE TABLE `administrateur` (
@@ -34,7 +34,7 @@ CREATE TABLE `administrateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `administrateur`
+-- Déchargement des données de la table `administrateur`
 --
 
 INSERT INTO `administrateur` (`id`, `email`, `mot_passe`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `administrateur` (`id`, `email`, `mot_passe`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patient`
+-- Structure de la table `patient`
 --
 
 CREATE TABLE `patient` (
@@ -62,7 +62,7 @@ CREATE TABLE `patient` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prestataire`
+-- Structure de la table `prestataire`
 --
 
 CREATE TABLE `prestataire` (
@@ -81,55 +81,101 @@ CREATE TABLE `prestataire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `prestataire`
+-- Déchargement des données de la table `prestataire`
 --
 
 INSERT INTO `prestataire` (`id`, `prenom`, `nom`, `email`, `mot_passe`, `telephone`, `specialite`, `etablissement`, `consultation`, `genre`, `ville`, `prix_consultation`) VALUES
-(1, 'a', 'b', 'c', 'd', 'e', 'f', 'prive', 'Homme', 'Homme', 'Gabès', 2.000);
+(1, 'a', 'b', 'c', 'd', 'e', 'f', 'prive', 'Homme', 'Homme', 'Gabès', 2.000),
+(2, 'sara', 'csdc', 'sarasayari639@gmail.com', '12345', '124578', 'xqx', 'prive', 'Femme', 'Femme', 'Sfax1', 80.000),
+(3, 'sara', 'csdc', 'sarasayari639@gmail.com', '12345', '124578', 'xqx', 'prive', 'Femme', 'Femme', 'Sfax1', 80.000),
+(4, 'sara', 'csdc', 'sarasayari639@gmail.com', '12345', '124578', 'xqx', 'prive', 'Femme', 'Femme', 'Sfax1', 80.000),
+(5, 'sara', 'csdc', 'sarasayari639@gmail.com', '12345', '124578', 'xqx', 'prive', 'Femme', 'Femme', 'Sfax1', 80.000),
+(6, 'sara', 'csdc', 'sarasayari639@gmail.com', '12345', '124578', 'xqx', 'prive', 'Femme', 'Femme', 'Sfax1', 80.000),
+(7, 'sara', 'csdc', 'sarasayari639@gmail.com', '12345', '124578', 'xqx', 'prive', 'Femme', 'Femme', 'Sfax1', 80.000);
+
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Structure de la table `rendez_vous`
+--
+
+CREATE TABLE `rendez_vous` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `methode` varchar(255) NOT NULL,
+  `id_patient` int(11) NOT NULL,
+  `id_prestataire` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `administrateur`
+-- Index pour la table `administrateur`
 --
 ALTER TABLE `administrateur`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `patient`
+-- Index pour la table `patient`
 --
 ALTER TABLE `patient`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `prestataire`
+-- Index pour la table `prestataire`
 --
 ALTER TABLE `prestataire`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Index pour la table `rendez_vous`
+--
+ALTER TABLE `rendez_vous`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_patient` (`id_patient`),
+  ADD KEY `id_prestataire` (`id_prestataire`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `administrateur`
+-- AUTO_INCREMENT pour la table `administrateur`
 --
 ALTER TABLE `administrateur`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `patient`
+-- AUTO_INCREMENT pour la table `patient`
 --
 ALTER TABLE `patient`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prestataire`
+-- AUTO_INCREMENT pour la table `prestataire`
 --
 ALTER TABLE `prestataire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT pour la table `rendez_vous`
+--
+ALTER TABLE `rendez_vous`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `rendez_vous`
+--
+ALTER TABLE `rendez_vous`
+  ADD CONSTRAINT `rendez_vous_ibfk_1` FOREIGN KEY (`id_patient`) REFERENCES `patient` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rendez_vous_ibfk_2` FOREIGN KEY (`id_prestataire`) REFERENCES `prestataire` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
