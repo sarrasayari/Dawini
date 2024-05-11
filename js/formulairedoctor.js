@@ -39,7 +39,7 @@ $(function() {
       data: formData,
       success: function(response) {
         if (response.success) {
-          $.growl.error({ message: "OK !" });
+          $.growl.notice({ message: "OK !" });
         } else {
           $.growl.error({ message: "Erreur !" });
         }
