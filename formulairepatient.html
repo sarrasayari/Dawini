@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formluaire patient </title>
+    <link rel="stylesheet" href="css/style6.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.growl.js"></script>
+</head>
+<body>
+    <div class="banner">
+       
+        
+    <div class="navbar">
+        <img class="logo" src="img/logo4.png">
+   </div>
+  
+    <video autoplay loop muted play-inline>
+        <source src="img/video.mp4" type="video/mp4">
+    </video>
+    <div class="formluaire">
+        <div classe="barre"> </div><br>
+        <form>
+            <h2> formluaire d'inscription</h2>
+            <div class ="form1">
+                <label for="date d'aujourd'hui">Date d'aujourd'hui<span class="star">*</span></label><br>
+                <input type="date" required class="input" id="dated'aujourd'hui"><br><br>
+
+                <script>
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('datedaujourdhui').value = today;
+                </script>
+
+                <label for="nomComplet">prenom  <span class="star">*</span></label><br>
+                <input type="text"  placeholder="Votre prenom" required class="input" id="prenom"><br><br>
+
+                <label for="nomComplet">Nom  <span class="star">*</span></label><br>
+                <input type="text"  placeholder="Votre nom " required class="input" id="nom"><br><br>
+                
+                <label for="email">Adresse Mail <span class="star">*</span></label><br>
+                <input type="email"  placeholder="Votre email " required class="input" id="email"><br><br>
+                
+                <label for="tel">Téléphone <span class="star">*</span></label><br>
+                <input type="text"  placeholder="Votre numero " required class="input" id="tel"><br><br>
+
+
+                
+
+                
+                
+
+                
+            
+
+                
+            </div>
+            <div class="form2">
+
+                
+                <label for="age">Age <span class="star">*</span></label><br>
+                <input type="number"  placeholder="" required class="input" id="age"><br><br>
+                
+                <label for="date de naissance">Date de naissance <span class="star">*</span></label><br>
+                <input type="date"   required class="input" id="date de naissance"><br><br>
+
+                <label for="lieu de naissance">Lieu de naissance <span class="star">*</span></label><br>
+                <input type="text"  placeholder="Votre lieu de naissance " required class="input" id="lieu de naissance"><br><br>
+               
+
+                <label for="genre">Genre <span class="star">*</span></label><br>
+                Homme<input type="radio" name="sexe" checked>&nbsp;
+                Femme<input type="radio" name="sexe" checked>&nbsp;
+
+
+
+                <h3> Adreese</h3>
+                <div class="form3">
+                    <label for="country"> Sélectionnez votre ville <span class="star">*</span></label>
+                    <select name="country" id="">
+                        <option value="Ariana"></option>
+                        <option value="Ariana">Ariana</option>
+                        <option value="Beja">Beja</option>
+                        <option value="Ben arous">Ben arous</option>
+                        <option value="Bezart">Bezart</option>
+                        <option value="Tataoun">Tataoun</option>
+                        <option value="Touzer">Touzer</option>
+                        <option value="Tunis">Tunis</option>
+                        <option value="Jandouba">Jandouba</option>
+                        <option value="Zaghouan">Zaghouan</option>
+                        <option value="Siliana">Siliana</option>
+                        <option value="Sousse">Sousse</option>
+                        <option value="Sidi Bouzid">Sidi Bouzid</option>
+                        <option value="Sfax1">Sfax1</option>
+                        <option value="Sfax2">Sfax2</option>
+                        <option value="Gabès">Gabès</option>
+                        <option value="Kebili">Kebili</option>
+                        <option value="Kasserine">Kasserine</option>
+                        <option value="Gafsa">Gafsa</option>
+                        <option value="Kairouan">Kairouan</option>
+                        <option value="kef">kef</option>
+                        <option value="Médenine">Médenine</option>
+                        <option value="Monastir">Monastir</option>
+                        <option value="Manouba">Manouba</option>
+                        <option value="Mahdia">Mahdia</option>
+                        <option value="Nabeul">Nabeul</option>
+        
+        
+        
+                    </select><br><br>
+
+
+                   
+                  
+    
+    
+    
+
+                </div>
+                
+                
+                
+
+               
+               
+
+            </div>
+            <div class="button">
+                <input type="submit"   value="Enregistrer  ">
+                
+
+
+            </div>
+        </form>
+    </div>
+</body>
+</html>
