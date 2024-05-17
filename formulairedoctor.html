@@ -29,6 +29,11 @@
                 const today = new Date().toISOString().split('T')[0];
                 document.getElementById('datedaujourdhui').value = today;
             </script>
+             <div class="field">
+                <label for="image">votre photo</label><br>
+                <input type="file">
+                <span></span>
+            </div>
 
             <label for="fname"> Prénom <span class="star">*</span></label><br>
             <input type="text" id="fname" placeholder="Enter voter prénom " required><br><br>
@@ -48,13 +53,14 @@
             <label for="age"> Age <span class="star">*</span></label><br>
             <input type="number" min="20" max="100" name="age" id="age" placeholder="Age"><br><br>
 
-            <label for="price"> prix de Consultation <span class="star">*</span></label><br>
-            <input type="number" id="price" placeholder="prix de consultation en DT"><br><br>
 
         </div>
         <div class="form2">
             
     
+            <label for="price"> prix de Consultation <span class="star">*</span></label><br>
+            <input type="number" id="price" placeholder="prix de consultation en DT"><br><br>
+
              <label for="specialite"> voter spécialite <span class="star">*</span></label><br>
              <input type="text" id="specialite" placeholder="voter  spécialite"><br><br>
               
@@ -87,8 +93,7 @@
                     <option value="Siliana">Siliana</option>
                     <option value="Sousse">Sousse</option>
                     <option value="Sidi Bouzid">Sidi Bouzid</option>
-                    <option value="Sfax1">Sfax</option>
-                    
+                    <option value="Sfax">Sfax</option>
                     <option value="Gabès">Gabès</option>
                     <option value="Kebili">Kebili</option>
                     <option value="Kasserine">Kasserine</option>
