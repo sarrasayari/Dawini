@@ -99,6 +99,7 @@
 
 
 
+<!-- Add user offcanvas  -->
  
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAddUser" style="width:600px;">
     <div class="offcanvas-header">
@@ -177,7 +178,7 @@
 
 
 
-
+ <!-- Edit user offcanvas  -->
 
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEditUser" style="width:600px;">
     <div class="offcanvas-header">
@@ -251,6 +252,7 @@
         </div>
       </form>
     </div>
+    
   </div>
 
 
@@ -288,6 +290,7 @@
   <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.js"></script>
   <!-- JS  -->
   <script src="js/scripteges.js"></script>
+  
 </body>
 
 </html>
