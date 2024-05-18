@@ -2,23 +2,38 @@ $(function()
 {
   $("#connexion").click(function(e)
   {
-    $.ajax
-    ({
-      url: "php/administrateur.php",
-      type: "POST",
-      dataType: "text",
-      data: {email: $("#email").val(), password: $("#password").val()},
-      success: function(response)
+    e.preventDefault();
+
+    if ($("#email").val() == ""  || $("#email").val() == "")
+    {
+      $.growl.error({ message: "Erreur !" });
+    }
+    else
       {
-        if (response.success) {window.location.href = response.redirect;}
-        else {$.growl.error({ message: "Mot de passe incorrecte !" });}
-      },
-      error: function(xhr, textStatus, errorThrown)
-      {
-        $.growl.error({ message: "Erreur !" });
-        console.log(xhr.responseText);
+        $.ajax
+        ({
+          url: "php/administrateur.php",
+          type: "POST",
+          dataType: "json",
+          data: {email: $("#email").val(), password: $("#password").val()},
+          success: function(response)
+          {
+            if (response.success)
+            {
+              window.location.href = response.redirect;
+            }
+            else
+            {
+              $.growl.error({ message: "Mot de passe incorrecte !" });
+            }
+          },
+          error: function(xhr, textStatus, errorThrown)
+          {
+            $.growl.error({ message: "Erreur !" });
+            console.log(xhr.responseText);
+          }
+        });
       }
-    })
   });
 });
 

@@ -22,7 +22,7 @@
 	if (mysqli_num_rows($result) == 1) // Admin Authenticated
 	{
 		/* Encode to Json Format */
-		$response = array("success" => true,"test1"=>$email,"test2"=>$password);
+		$response = array("success" => true, "redirect" => "table.html");
 		/* Return as Json Format */
 		echo json_encode($response);
 		exit;
