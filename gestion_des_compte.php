@@ -41,7 +41,6 @@
           <th>#</th>
           <th>prenom</th>
           <th>nom</th>
-          <th>Image</th>
           <th>Email</th>
           <th>telephone</th>
           <th>ville</th>
@@ -79,11 +78,11 @@
           echo "<tr>
             <td>" . $row["id"]  . "</td>
             <td>" . $row["prenom"]  . "</td>
-            <td>" . $row["nom"]  . "</td>
-            <td>" . $row["image"] . "</td>  
-            <td>" . $row["email"]  . "<td>
+            <td>" . $row["nom"]  . "</td> 
+            <td>" . $row["email"]  . "</td>
+            <td>" . $row["telephone"] . "</td> 
             <td>" . $row["ville"]  . "</td>
-            <td>" . $row["telephone"] . "</td>  
+            
             <td> 
              <a class='btn btn-primary btn-sm' href='update' >Update</a>
              <a class='btn btn-danger btn-sam' href='delete' >Delete</a>
