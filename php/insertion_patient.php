@@ -9,30 +9,26 @@ if (!isset($_SERVER["HTTP_REFERER"])) {
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $email = $_POST["email"];
+    $password = $_POST["password"];
     $telephone = $_POST["telephone"];
     $age = $_POST["age"];
-    $price = $_POST["price"];
+    $datedenaissance = $_POST["datedenaissance"];
+    $lieudenaissance = $_POST["lieudenaissance"];
     $ville = $_POST["ville"];
-    $date_naissance = $_POST["date_naissance"];
-    $lieu_naissance = $_POST["lieu_naissance"];
-    $genre = $_POST["genre"];
-    
 
     // Prevent SQL injection
     $datedaujourdhui = mysqli_real_escape_string($connection, $datedaujourdhui);
     $fname = mysqli_real_escape_string($connection, $fname);
     $lname = mysqli_real_escape_string($connection, $lname);
     $email = mysqli_real_escape_string($connection, $email);
+    $password = mysqli_real_escape_string($connection, $password);
     $telephone = mysqli_real_escape_string($connection, $telephone);
     $age = mysqli_real_escape_string($connection, $age);
-    $price = mysqli_real_escape_string($connection, $price);
+    $datedenaissance = mysqli_real_escape_string($connection, $datedenaissance);
+    $lieudenaissance = mysqli_real_escape_string($connection, $lieudenaissance);
     $ville = mysqli_real_escape_string($connection, $ville);
-    $date_naissance = mysqli_real_escape_string($connection, $date_naissance);
-    $lieu_naissance = mysqli_real_escape_string($connection, $lieu_naissance);
-    $genre = mysqli_real_escape_string($connection, $genre);
-   
 
-    $query = "INSERT INTO patient (prenom, nom, email,date_naissance,lieu_naissance,  telephone,    genre, ville, ) VALUES ('$fname', '$lname', '$email', '$telephone', '$lieu_naissance',  '$date_naissance', '$genre', '$ville', '$price')";
+    $query = "INSERT INTO patient (prenom, nom, email, mot_passe, telephone, age, ville, date_naissance, lieu_naissance) VALUES ('$fname', '$lname', '$email', '$password', '$telephone', '$age', '$ville', '$datedenaissance', '$lieudenaissance')";
 
     if (mysqli_query($connection, $query))
     {

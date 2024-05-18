@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style6.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.growl.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.growl.css">
+    <script type="text/javascript" src="js/formulairepatient.js"></script>
 </head>
 <body>
     <div class="banner">
@@ -24,64 +26,54 @@
         <form>
             <h2> formluaire d'inscription</h2>
             <div class ="form1">
-                <label for="date d'aujourd'hui">Date d'aujourd'hui<span class="star">*</span></label><br>
-                <input type="date" required class="input" id="dated'aujourd'hui"><br><br>
+                <label for="datedaujourdhui">Date d'aujourd'hui<span class="star">*</span></label><br>
+                <input type="date" required class="input" id="datedaujourdhui"><br><br>
 
                 <script>
                     const today = new Date().toISOString().split('T')[0];
                     document.getElementById('datedaujourdhui').value = today;
                 </script>
 
-                <label for="nomComplet">prenom  <span class="star">*</span></label><br>
-                <input type="text"  placeholder="Votre prenom" required class="input" id="prenom"><br><br>
-
-                <label for="nomComplet">Nom  <span class="star">*</span></label><br>
-                <input type="text"  placeholder="Votre nom " required class="input" id="nom"><br><br>
-                
-                <label for="email">Adresse Mail <span class="star">*</span></label><br>
-                <input type="email"  placeholder="Votre email " required class="input" id="email"><br><br>
-                
-                <label for="tel">Téléphone <span class="star">*</span></label><br>
-                <input type="text"  placeholder="Votre numero " required class="input" id="tel"><br><br>
-
-
-                
-
-                
-                
-
-                
+                <label for="fname"> Prénom <span class="star">*</span></label><br>
+                <input type="text" id="fname" placeholder="Enter voter prénom " required><br><br>
             
-
+                <label for="lname"> Nom <span class="star">*</span></label><br>
+                <input type="text" id="lname" placeholder="Enter voter nom " required><br><br>
                 
+                <label for="email"> Email <span class="star">*</span></label><br>
+                <input type="email" id="email" placeholder="Enter voter mail" required> <br><br>
+
+                <label for="password"> Mot de passe  <span class="star">*</span></label><br>
+                <input type="password" id="password" placeholder="Enter voter mod passe" required><br><br>
+
+                <label for="telephone"> Telephone <span class="star">*</span></label><br>
+                <input type="tel" id="telephone" placeholder="Enter voter numero  de Telephone"><br><br>          
             </div>
             <div class="form2">
 
-                
-                <label for="age">Age <span class="star">*</span></label><br>
-                <input type="number"  placeholder="" required class="input" id="age"><br><br>
-                
-                <label for="date de naissance">Date de naissance <span class="star">*</span></label><br>
-                <input type="date"   required class="input" id="date de naissance"><br><br>
+                <label for="age"> Age <span class="star">*</span></label><br>
+                <input type="number" min="20" max="100" name="age" id="age" placeholder="Age"><br><br> 
+   
+                <label for="datedenaissance">Date de naissance <span class="star">*</span></label><br>
+                <input type="date"   required class="input" id="datedenaissance"><br><br>
 
-                <label for="lieu de naissance">Lieu de naissance <span class="star">*</span></label><br>
-                <input type="text"  placeholder="Votre lieu de naissance " required class="input" id="lieu de naissance"><br><br>
+                <label for="lieudenaissance">Lieu de naissance <span class="star">*</span></label><br>
+                <input type="text"  placeholder="Votre lieu de naissance " required class="input" id="lieudenaissance"><br><br>
                
 
-                <label for="genre">Genre <span class="star">*</span></label><br>
-                Homme<input type="radio" name="sexe" checked>&nbsp;
-                Femme<input type="radio" name="sexe" checked>&nbsp;
+                <label for=""> Genre <span class="star">*</span></label><br>
+                <input type="radio" id="Homme" name="gender" value="Homme"><label for="Homme">Homme</label><br>
+                <input type="radio" id="Femme"  name="gender" value="Femme"><label for="Femme">Femme</label><br>
 
 
 
                 <h3> Adreese</h3>
                 <div class="form3">
-                    <label for="country"> Sélectionnez votre ville <span class="star">*</span></label>
-                    <select name="country" id="">
+                    <label for="ville"> Sélectionnez votre ville <span class="star">*</span></label>
+                    <select name="ville" id="ville">
                         <option value="Ariana"></option>
-                        <option value="Ariana">Ariana</option>
-                        <option value="Beja">Beja</option>
-                        <option value="Ben arous">Ben arous</option>
+                       
+                        
                         <option value="Bezart">Bezart</option>
                         <option value="Tataoun">Tataoun</option>
                         <option value="Touzer">Touzer</option>
@@ -103,32 +95,11 @@
                         <option value="Manouba">Manouba</option>
                         <option value="Mahdia">Mahdia</option>
                         <option value="Nabeul">Nabeul</option>
-        
-        
-        
                     </select><br><br>
-
-
-                   
-                  
-    
-    
-    
-
                 </div>
-                
-                
-                
-
-               
-               
-
             </div>
             <div class="button">
-                <input type="submit"   value="Enregistrer  ">
-                
-
-
+                <input id="Enregistrer" type="submit" value="Enregistrer">
             </div>
         </form>
     </div>
