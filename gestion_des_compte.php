@@ -38,14 +38,13 @@
     <table class="table table-bordered table-striped table-hover align-middle" id="myTable" style="width:100%;">
       <thead class="table-dark">
         <tr>
-          <th>#</th>
-          <th>prenom</th>
-          <th>nom</th>
-          <th>Email</th>
-          <th>telephone</th>
-          <th>ville</th>
-          <th>Actions</th>
-          
+          <th>Id</th>
+            <th>Prénom</th>
+            <th>Nom </th>
+            <th>E-mail</th>
+            <th>Téléphone</th>
+            <th>Ville</th>
+            <th>Action</th>
         </tr>
 <!-- test -->
       </thead>
@@ -66,10 +65,8 @@
              die("Connection failed : " . $connection->connect_error);
         }
    
-        $sql = "SELECT * FROM prestataire ";
+        $sql = "SELECT * FROM prestataire";
         $result = $connection->query($sql);
-
-
    
         if (!$result) {
             die ("invalid query: " .$connection->error);
@@ -77,7 +74,7 @@
                    
                    
         while($row = $result->fetch_assoc())  {
-          echo "<tr>
+          echo "<tr id='" . $row["id"]  . "'>
             <td>" . $row["id"]  . "</td>
             <td>" . $row["prenom"]  . "</td>
             <td>" . $row["nom"]  . "</td> 
@@ -86,8 +83,8 @@
             <td>" . $row["ville"]  . "</td>
             
             <td> 
-             <a class='btn btn-primary btn-sm' href='update' >Update</a>
-             <a class='btn btn-danger btn-sam' href='delete' >Delete</a>
+            <a class='btn btn-primary btn-sm' href='php/update.php?id=" . $row["id"] . "'>Update</a>
+             <a class='btn btn-danger btn-sm' href='php/delete.php?id=" . $row["id"] . "'>Delete</a>
             </td>
           </tr>";
    
@@ -123,7 +120,19 @@
           <label class="form-label">Email</label>
           <input type="email" class="form-control" name="email" placeholder="user@gmail.com">
         </div>
-        
+        <div class="row mb-3">
+          <label class="form-label"> Image</label>
+          <div class="col-2">
+          <img class="preview_img" src="img/default_profile.jpg">
+          </div>
+          <div class="col-10">
+            <div class="file-upload text-secondary">
+              <input type="file" class="image" name="image" accept="image/*">
+              <span class="fs-4 fw-2">Choose file...</span>
+              
+            </div>
+          </div>
+        </div>
         <div class="mb-3">
           <label class="form-label">ville</label>
           <select name="country" class="form-control">
@@ -165,8 +174,6 @@
     </div>
   </div>
 
-
-
  <!-- Edit user offcanvas  -->
 
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEditUser" style="width:600px;">
@@ -191,7 +198,20 @@
           <label class="form-label">Email</label>
           <input type="email" class="form-control" name="email" placeholder="user@gmail.com">
         </div>
-        
+        <div class="row mb-3">
+          <label class="form-label">Télécharger une image</label>
+          <div class="col-2">
+          <img class="preview_img" src="img/default_profile.jpg">
+          </div>
+          <div class="col-10">
+            <div class="file-upload text-secondary">
+              <input type="file" class="image" name="image" accept="image/*">
+              <input type="hidden" name="image_old" id="image_old">
+              <span class="fs-4 fw-2">Choose file...</span>
+             
+            </div>
+          </div>
+        </div>
         <div class="mb-3">
         <option value="Ariana"></option>
                         <option value="Ariana">Ariana</option>
