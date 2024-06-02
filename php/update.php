@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
         </html>
         <?php
     } else {
-        echo "Record not found.";
+        echo "Enregistrement non trouvé.";
     }
 
     $stmt->close();

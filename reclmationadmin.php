@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>gestion des compte</title>
+  <title>reclamtion</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <!-- Font Awesome  -->
@@ -22,30 +22,27 @@
     <div class="navbar">
         <img class="logo" src="img/logo4.png">
     </div>
-  <nav class="navbar justify-content-center fs-3 mb-3" style="background-color: rouge;">gestion des comptes</nav>
+  <nav class="navbar justify-content-center fs-3 mb-3" style="background-color:bleu;"></nav>
 
   <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <div class="text-body-secondary">
-        <h5>Tous les utilisateurs</h5>
+        <span class="h5">Tous les réclamations</span>
         <br>
-        les prestataires de services :
+        
       </div>
 
       
     </div>
 
 
-    <table class="table table-striped" id="" style="width:100%;">
+    <table class="table table-success table-striped" id="" style="width:100%;">
       <thead class="table-striped">
         <tr>
-          <th>#</th>
-            <th>Prénom</th>
-            <th>Nom </th>
-            <th>E-mail</th>
-            <th>Téléphone</th>
-            <th>Ville</th>
-            <th>Action</th>
+          <th>Id</th>
+            <th>Date</th>
+            <th>réclamation</th>
+            
         </tr>
 <!-- test -->
       </thead>
@@ -66,7 +63,7 @@
              die("Connection failed : " . $connection->connect_error);
         }
    
-        $sql = "SELECT * FROM prestataire";
+        $sql = "SELECT * FROM réclamation";
         $result = $connection->query($sql);
    
         if (!$result) {
@@ -77,79 +74,18 @@
         while($row = $result->fetch_assoc())  {
           echo "<tr id='" . $row["id"]  . "'>
             <td>" . $row["id"]  . "</td>
-            <td>" . $row["prenom"]  . "</td>
-            <td>" . $row["nom"]  . "</td> 
-            <td>" . $row["email"]  . "</td>
-            <td>" . $row["telephone"] . "</td> 
-            <td>" . $row["ville"]  . "</td>
+            <td>" . $row["date"]  . "</td>
+            <td>" . $row["réclamation"]  . "</td> 
+           
             
-            <td> 
-            <a class='btn btn-primary btn-sm' href='php/update.php?id=" . $row["id"] . "'>Update</a>
-             <a class='btn btn-danger btn-sm' href='php/delete.php?id=" . $row["id"] . "'>Delete</a>
-            </td>
+           
           </tr>";
    
         }     
                   
       ?>
       </tbody>
-    </table> 
-    les patients :
-    
-    <br<<br><table class="table table-striped" id="" style="width:100%;">
-     
-      <tbody>
-      <?php
-                
-        $host = "localhost";
-        $user = "root";
-        $password = "";
-        $dbname = "dawini";
-   
-   
-        $connection = mysqli_connect($host,$user,$password,$dbname);
-   
-     
-        if ($connection->connect_error)
-        {
-             die("Connection failed : " . $connection->connect_error);
-        }
-   
-        $sql = "SELECT * FROM patient";
-        $result = $connection->query($sql);
-   
-        if (!$result) {
-            die ("invalid query: " .$connection->error);
-        } 
-                   
-                   
-        while($row = $result->fetch_assoc())  {
-          echo "<tr id='" . $row["id"]  . "'>
-            <td>" . $row["id"]  . "</td>
-            <td>" . $row["prenom"]  . "</td>
-            <td>" . $row["nom"]  . "</td> 
-            <td>" . $row["email"]  . "</td>
-            <td>" . $row["telephone"] . "</td> 
-            <td>" . $row["ville"]  . "</td>
-            
-            <td> 
-            <a class='btn btn-primary btn-sm' href='php/update.php?id=" . $row["id"] . "'>Update</a>
-             <a class='btn btn-danger btn-sm' href='php/delete.php?id=" . $row["id"] . "'>Delete</a>
-            </td>
-          </tr>";
-   
-        }     
-                  
-      ?>
-      </tbody>
-    </table> 
-
-    
-      
-          
-
-  
-  
+    </table>
     <div style="padding-top: 20px;">
       <a  href="bienvenue.html" class="btn btn-secondary">se déconnecte </a>
       <a  href="choixadmin.html" class="btn btn-secondary">return </a>

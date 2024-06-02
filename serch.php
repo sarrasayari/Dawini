@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>gestion des compte</title>
+  <title>recherchez</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <!-- Font Awesome  -->
@@ -14,40 +13,43 @@
   <!-- Datatables CSS  -->
   <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet" />
   <!-- CSS  -->
-  <link rel="stylesheet" href="css/styleges.css">
+  <link rel="stylesheet" href="css/stylesersh.css">
 </head>
 
 <body>
+    
 
     <div class="navbar">
         <img class="logo" src="img/logo4.png">
     </div>
-  <nav class="navbar justify-content-center fs-3 mb-3" style="background-color: rouge;">gestion des comptes</nav>
+  <nav class="navbar justify-content-center fs-3 mb-3" style="text-align: center ;
+    text-transform: uppercase;
+    border-bottom: 1px solid #888;
+    text-shadow: 2px 0 0 rgb(21, 0, 73);
+    };"
+    >recherche des prestataire </nav>
 
   <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <div class="text-body-secondary">
-        <h5>Tous les utilisateurs</h5>
-        <br>
-        les prestataires de services :
+        
+       
+       
       </div>
-
-      
     </div>
-
-
-    <table class="table table-striped" id="" style="width:100%;">
-      <thead class="table-striped">
-        <tr>
-          <th>#</th>
+    <table class="table table-bordered table-striped table-hover align-middle" id="myTable" style="width:100%;">
+      <thead class="table-dark">
+      <tr>
             <th>Prénom</th>
             <th>Nom </th>
-            <th>E-mail</th>
+            <th>email</th>
             <th>Téléphone</th>
             <th>Ville</th>
-            <th>Action</th>
-        </tr>
-<!-- test -->
+            <th>specialite</th>
+            <th>etablissement</th>
+            <th></th>
+          </tr>
+
       </thead>
       <tbody>
       <?php
@@ -76,16 +78,17 @@
                    
         while($row = $result->fetch_assoc())  {
           echo "<tr id='" . $row["id"]  . "'>
-            <td>" . $row["id"]  . "</td>
+    
             <td>" . $row["prenom"]  . "</td>
             <td>" . $row["nom"]  . "</td> 
             <td>" . $row["email"]  . "</td>
             <td>" . $row["telephone"] . "</td> 
             <td>" . $row["ville"]  . "</td>
-            
+            <td>" . $row["specialite"]  . "</td>
+            <td>" . $row["etablissement"]  . "</td>
             <td> 
-            <a class='btn btn-primary btn-sm' href='php/update.php?id=" . $row["id"] . "'>Update</a>
-             <a class='btn btn-danger btn-sm' href='php/delete.php?id=" . $row["id"] . "'>Delete</a>
+            <a class='btn btn-primary btn-sm' href='rendez-vous.html?id=" . $row["id"] . "'>prendre un rendez_vous</a>
+             
             </td>
           </tr>";
    
@@ -93,68 +96,10 @@
                   
       ?>
       </tbody>
-    </table> 
-    les patients :
+    </table>
     
-    <br<<br><table class="table table-striped" id="" style="width:100%;">
-     
-      <tbody>
-      <?php
-                
-        $host = "localhost";
-        $user = "root";
-        $password = "";
-        $dbname = "dawini";
-   
-   
-        $connection = mysqli_connect($host,$user,$password,$dbname);
-   
-     
-        if ($connection->connect_error)
-        {
-             die("Connection failed : " . $connection->connect_error);
-        }
-   
-        $sql = "SELECT * FROM patient";
-        $result = $connection->query($sql);
-   
-        if (!$result) {
-            die ("invalid query: " .$connection->error);
-        } 
-                   
-                   
-        while($row = $result->fetch_assoc())  {
-          echo "<tr id='" . $row["id"]  . "'>
-            <td>" . $row["id"]  . "</td>
-            <td>" . $row["prenom"]  . "</td>
-            <td>" . $row["nom"]  . "</td> 
-            <td>" . $row["email"]  . "</td>
-            <td>" . $row["telephone"] . "</td> 
-            <td>" . $row["ville"]  . "</td>
-            
-            <td> 
-            <a class='btn btn-primary btn-sm' href='php/update.php?id=" . $row["id"] . "'>Update</a>
-             <a class='btn btn-danger btn-sm' href='php/delete.php?id=" . $row["id"] . "'>Delete</a>
-            </td>
-          </tr>";
-   
-        }     
-                  
-      ?>
-      </tbody>
-    </table> 
-
-    
-      
-          
-
-  
-  
-    <div style="padding-top: 20px;">
-      <a  href="bienvenue.html" class="btn btn-secondary">se déconnecte </a>
-      <a  href="choixadmin.html" class="btn btn-secondary">return </a>
-    </div>
   </div>
+
 
 
 
@@ -196,5 +141,3 @@
   <script src="js/scripteges.js"></script>
   
 </body>
-
-</html>

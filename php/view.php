@@ -18,7 +18,7 @@
         <header class="d-flex justify-content-between my-4">
             <h1>Détail du doisser</h1>
             <div>
-            <a href="doisser.php" class="btn btn-primary">retour</a>
+            <a href="../doisser.php" class="btn btn-primary">retour</a>
             </div>
         </header>
         <div class="book-details p-5 my-4">

@@ -22,7 +22,7 @@
 	if (mysqli_num_rows($result) == 1) // Admin Authenticated
 	{
 		/* Encode to Json Format */
-		$response = array("success" => true, "redirect" => "gestion_des_compte.php");
+		$response = array("success" => true, "redirect" => "choixadmin.html");
 		/* Return as Json Format */
 		echo json_encode($response);
 		exit;

@@ -30,11 +30,7 @@
                 const today = new Date().toISOString().split('T')[0];
                 document.getElementById('datedaujourdhui').value = today;
             </script>
-             <div class="field">
-                <label for="image">votre photo</label><br>
-                <input type="file">
-                <span></span>
-            </div>
+             
 
             <label for="fname"> Prénom <span class="star">*</span></label><br>
             <input type="text" id="fname" placeholder="Enter voter prénom " required><br><br>
@@ -57,8 +53,7 @@
         <div class="form2">
             
     
-            <label for="price"> prix de Consultation <span class="star">*</span></label><br>
-            <input type="number" id="price" placeholder="prix de consultation en DT"><br><br>
+            
 
              <label for="specialite"> voter spécialite <span class="star">*</span></label><br>
              <input type="text" id="specialite" placeholder="voter  spécialite"><br><br>
@@ -104,24 +99,25 @@
                     <option value="Manouba">Manouba</option>
                     <option value="Mahdia">Mahdia</option>
                     <option value="Nabeul">Nabeul</option>
-    
-    
-    
                 </select><br><br>
                 <br><br>
 
+            </div>
         </div>
-        
         <div class="button">
-            <input id="submit" type="submit" value="Enregistrer">
+            <input id="submit" type="submit" value="Enregistrer" >
+            
             
 
 
         </div>
+        <div style="padding-top: 20px;">
+            <a  href="bienvenue.html" class="btn btn-secondary">retour </a>
+    
+        </div>
 
     </form>
    
-
 </div>
     
 </body>

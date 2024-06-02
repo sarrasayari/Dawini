@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+z<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,20 +12,34 @@
     <header class="d-flex justify-content-between my-4">
             <h1>Modifier le doisser</h1>
             <div>
-            <a href="doisser.php" class="btn btn-primary">retour</a>
+            <a href="../doisser.php" class="btn btn-primary">retour</a>
             </div>
         </header>
-        <form action="php/process.php" method="post">
+        <form action="../process.php" method="post">
             <?php 
             
-            if (isset($_GET['id'])) {
-                include("connect.php");
+            $host = "localhost";
+            $user = "root";
+            $password = "";
+            $dbname = "dawini";
+            
+            $connection = new mysqli($host, $user, $password, $dbname);
+            
+            if ($connection->connect_error) {
+                die("Connection failed: " . $connection->connect_error);
+            }
+            if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
                 $id = $_GET['id'];
-                $sql = "SELECT * FROM doisser_medical WHERE id=$id";
-                $result = mysqli_query($conn,$sql);
-                $row = mysqli_fetch_array($result);
-                ?>
-                     <div class="form-elemnt my-4">
+                $sql = "SELECT * FROM doisser_medical WHERE id = ?";
+                $stmt = $connection->prepare($sql);
+                $stmt->bind_param("i", $id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $row = $result->fetch_assoc();
+            
+        
+            ?>
+            <div class="form-elemnt my-4">
                 <input type="text" class="form-control" name="num_doisser" placeholder="Book Title:" value="<?php echo $row["num_doisser"]; ?>">
             </div>
             <div class="form-elemnt my-4">
