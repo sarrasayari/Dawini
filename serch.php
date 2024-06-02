@@ -25,9 +25,8 @@
   <nav class="navbar justify-content-center fs-3 mb-3" style="text-align: center ;
     text-transform: uppercase;
     border-bottom: 1px solid #888;
-    text-shadow: 2px 0 0 rgb(21, 0, 73);
-    };"
-    >recherche des prestataire </nav>
+    text-shadow: 2px 0 0 rgb(21, 0, 73);">
+  recherche des prestataire </nav>
 
   <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">

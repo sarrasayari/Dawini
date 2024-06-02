@@ -22,50 +22,66 @@
         <form>
             <h2> passe  votre  rendez-vous</h2>
             <div class ="form1">
-                <label for="date d'aujourd'hui">Date de rendez-vous <span class="star">*</span></label><br>
-                <input type="date" required class="input" id="dated'aujourd'hui"><br><br>
+                <label for="email">Email <span class="star">*</span></label><br>
+                <input type="email" required class="input" id="email"><br><br>
+
+                <label for="date">Date de rendez-vous <span class="star">*</span></label><br>
+                <input type="date" required class="input" id="date"><br><br>
 
                 <label for="time"> temps de rendez-vous <span class="star">*</span></label><br>
                 <input type="time" required class="input" id="time"><br><br>
 
 
                 <label class="label">methode de paiement:</label><br>
-                la totalité du montant <input type="radio" name="sexe" checked>&nbsp;<br>
-                50% du montant <input type="radio" name="sexe" checked>&nbsp;<br>
+                la totalité du montant <input type="radio" name="payment_method" value="total">&nbsp;<br>
+                50% du montant <input type="radio" name="payment_method" value="50_percent" checked>&nbsp;<br>
 
                 <div>
-                    <button><a href="paitemnent.html">passe au paiement</a></button>
+                    <button type="button" onclick="validateAndProceed()">passe au paiement</button>
                 </div>
-                
-                
-                
-
-                
             </div>
-            
-
-                
-               
-        
-                
-
-        
-                
-
-                
-                
-                
-                
-
-               
-               
-
-          
-                
-
-
             </div>
         </form>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function getDoctorIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        function validateAndProceed() {
+            const email = $('#email').val();
+            const date = $('#date').val();
+            const time = $('#time').val();
+            const paymentMethod = $('input[name="payment_method"]:checked').val();
+            const doctorId = getDoctorIdFromUrl();
+
+            console.log(email)
+
+            if (!email || !date || !time || !paymentMethod || !doctorId) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            $.ajax({
+                url: 'php/validate_patient.php',
+                type: 'POST',
+                data: { email: email },
+                success: function(response) {
+                    if (response === "exists") {
+                        const amount = paymentMethod === "total" ? 100 : 50; // Assume 100 is full amount and 50 is half
+                        window.location.href = `paitemnent.html?doctorId=${doctorId}&email=${email}&date=${date}&time=${time}&amount=${amount}`;
+                    } else {
+                        window.location.href = `formulairepatient.html`;
+                    }
+                },
+                error: function() {
+                    alert("An error occurred while validating the patient.");
+                }
+            });
+        }
+    </script>
 </body>
 </html>
